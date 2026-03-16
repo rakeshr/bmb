@@ -178,7 +178,7 @@ nav .nav-list li a:hover {
 /* Hero */
 .hero {
     height: clamp(600px, 80vh, 1080px);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://bmb.swiss/wp-content/uploads/2026/02/BMB_slider_image.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/hero.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -343,7 +343,7 @@ nav .nav-list li a:hover {
 /* Middle Message Section */
 .hero-mini {
     height: clamp(500px, 60vh, 750px);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://bmb.swiss/wp-content/uploads/2026/02/BMB_image_02.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/hero_mini.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -368,7 +368,7 @@ nav .nav-list li a:hover {
 /* Contact Form Section */
 .contact-hero {
     padding: var(--section-padding) 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://bmb.swiss/wp-content/uploads/2026/02/BMB_image_07.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/contact.webp');
     background-size: cover;
     background-position: center;
     color: var(--white);
