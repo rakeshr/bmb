@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMB | Präzision in Perfektion</title>
+    <meta name="description" content="Professionelle Türmontagen, Reparaturen und Beschläge – Qualität bis ins Detail.">
+    <link rel="icon" type="image/webp" href="images/favicon.webp">
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Colors - Premium Dark Palette */
+            --primary: #121212;
+            --secondary: #1A1A1A;
+            --accent: #D4AF37;
+            /* Precision Gold */
+            --accent-soft: rgba(212, 175, 55, 0.1);
+            --text-main: #FFFFFF;
+            --text-muted: #A0A0A0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+
+            /* Fluid Typography - Scaled Up */
+            --h1-size: clamp(4.5rem, 18vw + 2rem, 4.5rem);
+            --h2-size: clamp(3rem, 10vw + 2rem, 3rem);
+            --h3-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+            --body-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+            --nav-size: clamp(1.35rem, 0.75vw + 0.5rem, 1.65rem);
+
+            /* Fluid Spacing */
+            --section-padding: clamp(4rem, 10vw, 10rem);
+            --container-max: 1400px;
+            --grid-gap: clamp(1.5rem, 4vw, 4rem);
+
+            /* Misc */
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius: 12px;
+        }
+
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            font-size: var(--h1-size);
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-size: var(--h2-size);
+        }
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            font-size: var(--h3-size);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        /* Utilities */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 5vw;
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: clamp(1rem, 2vw, 2.5rem) 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 1.2rem 0;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: clamp(40px, 4vw, 55px);
+            width: auto;
+            filter: invert(1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: var(--nav-size);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-cta {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            background: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(0.4);
+            animation: zoomInfinite 20s infinite alternate ease-in-out;
+        }
+
+        /* Hero fallback image */
+        .hero-img-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.2), rgba(18, 18, 18, 0.8)), url('images/hero.webp');
+            background-size: cover;
+            background-position: center;
+            animation: zoomInfinite 30s infinite alternate ease-in-out;
+        }
+
+        @keyframes zoomInfinite {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInReveal 1s forwards 0.2s;
+        }
+
+        .hero h1 {
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInReveal 1s forwards 0.4s;
+        }
+
+        .hero p {
+            font-size: var(--body-size);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInReveal 1s forwards 0.6s;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInReveal 1s forwards 0.8s;
+        }
+
+        @keyframes fadeInReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Badge */
+        .scroll-badge {
+            position: absolute;
+            bottom: 3rem;
+            right: 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 100px;
+            background: var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: var(--accent);
+            animation: scrollDown 2s infinite ease-in-out;
+        }
+
+        @keyframes scrollDown {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(200%);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: var(--grid-gap);
+            max-width: 800px;
+        }
+
+        .section-header .tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.2rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* About Section - Overlap Design */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--grid-gap);
+            align-items: center;
+        }
+
+        .about-img-stack {
+            position: relative;
+        }
+
+        .about-img-main {
+            border-radius: var(--radius);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-floating-card {
+            position: absolute;
+            bottom: -3rem;
+            right: -2rem;
+            background: var(--secondary);
+            padding: 3rem;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            max-width: 300px;
+            display: none;
+            /* Desktop only enhancement */
+        }
+
+        @media (min-width: 1024px) {
+            .about-floating-card {
+                display: block;
+            }
+        }
+
+        .about-text h2 {
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Services Section - Bento Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            padding: 3rem;
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to bottom, var(--accent-soft), transparent);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .service-img-wrap {
+            margin-top: auto;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .service-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mini Hero / CTA Section */
+        .cta-strip {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta-strip h2 {
+            color: var(--primary);
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--grid-gap);
+        }
+
+        .contact-info-card {
+            background: var(--secondary);
+            padding: 4rem;
+            border-radius: var(--radius);
+        }
+
+        .contact-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--secondary);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            color: var(--text-main);
+            font-family: inherit;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-submit {
+            grid-column: span 2;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            letter-spacing: 0.4rem;
+            background: #fff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--glass-border);
+            background: #0a0a0a;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Mobile Toggle Animation Styles */
+        .mobile-toggle {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .mobile-toggle span:nth-child(1) { top: 0px; }
+        .mobile-toggle span:nth-child(2) { top: 9px; }
+        .mobile-toggle span:nth-child(3) { top: 18px; }
+
+        .mobile-toggle.active span:nth-child(1) {
+            top: 9px;
+            transform: rotate(135deg);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            top: 9px;
+            transform: rotate(-135deg);
+        }
+
+        @media (max-width: 900px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--primary);
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                z-index: 999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 2rem;
+            }
+
+            .mobile-toggle {
+                display: block;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .about-grid,
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Reveal Animations */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        [data-reveal].active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.webp" alt="BMB Logo" width="321" height="115">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#ueberuns">Das Team</a></li>
+                    <li><a href="#leistungen">Portfolio</a></li>
+                    <li><a href="#kontakt" class="btn-cta">Kontakt</a></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-img-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-tagline">Schweizer Handwerkskunst</span>
+                    <h1>Präzision.<br>Zuverlässigkeit.<br><span class="text-accent">BMB.</span></h1>
+                    <p style="color: #fff;">Wir vereinen langjährige Erfahrung mit modernster Montage-Technik. Für
+                        Türen, die nicht nur
+                        schliessen, sondern überzeugen.</p>
+                    <div class="hero-actions">
+                        <a href="#kontakt" class="btn-cta">Jetzt Offerte</a>
+                        <a href="#leistungen"
+                            style="border-bottom: 2px solid var(--accent); font-weight: 600; padding: 0.5rem 0;">Unsere
+                            Leistungen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-badge">
+                <span>Entdecken</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="ueberuns" class="bg-secondary" data-reveal>
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-img-stack">
+                        <img src="images/about.webp" alt="BMB Gründer" class="about-img-main" width="637" height="430">
+                        <div class="about-floating-card">
+                            <h3 style="font-size: 2.5rem; color: var(--accent);">20+</h3>
+                            <p
+                                style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1rem; color: #fff;">
+                                Jahre gebündelte Erfahrung</p>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <span class="text-accent"
+                            style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem;">Über
+                            Uns</span>
+                        <h2 style="margin-top: 1rem;">Drei Gründer. Ein Anspruch:<br><span class="text-accent">Sauberes
+                                Handwerk.</span></h2>
+                        <p>BMB besteht aus den drei Gründern Burkhalter, Müller und Butah. Gemeinsam vereinen wir
+                            langjährige Erfahrung, handwerkliche Präzision und eine Leidenschaft für Türen.</p>
+                        <p>Wir glauben an ehrliches Schweizer Handwerk, klare Kommunikation und Lösungen, die halten. Ob
+                            Montage, Reparatur oder Beschlag – wir arbeiten sorgfältig, effizient und immer auf
+                            Augenhöhe.</p>
+                        <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+                            <div><strong style="display: block; font-size: 1.2rem;">Sorgfältig</strong><span
+                                    style="font-size: 0.8rem; color: var(--text-muted);">Bis ins Detail</span></div>
+                            <div><strong style="display: block; font-size: 1.2rem;">Effizient</strong><span
+                                    style="font-size: 0.8rem; color: var(--text-muted);">Zeitsparend</span></div>
+                            <div><strong style="display: block; font-size: 1.2rem;">Respektvoll</strong><span
+                                    style="font-size: 0.8rem; color: var(--text-muted);">Kundenfokus</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="leistungen" data-reveal>
+            <div class="container">
+                <div class="section-header">
+                    <span class="tag">Portfolio</span>
+                    <h2>Türen, die halten, was sie versprechen.</h2>
+                    <p style="color: var(--text-muted); margin-top: 1.5rem;">Vom Neubau bis zur Reparatur – wir bieten
+                        massgeschneiderte Lösungen für jede Anforderung.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-reveal>
+                        <div class="service-icon">01</div>
+                        <h3>Türmontage</h3>
+                        <p>Wir montieren Innen- und Aussentüren, Schiebetüren, Brandschutztüren sowie Speziallösungen
+                            fachgerecht exakt nach Vorgabe.</p>
+                        <div class="service-img-wrap">
+                            <img src="images/service1.webp" alt="Türmontage" width="558" height="459">
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-reveal>
+                        <div class="service-icon">02</div>
+                        <h3>Beschläge</h3>
+                        <p>Präzise Installation von Türdrückern, Schlössern, Türschliessern und modernen
+                            Zutrittssystemen für Ihre Sicherheit.</p>
+                        <div class="service-img-wrap">
+                            <img src="images/service2.webp" alt="Beschläge" width="558" height="458">
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-reveal>
+                        <div class="service-icon">03</div>
+                        <h3>Reparaturen</h3>
+                        <p>Wenn etwas klemmt: Wir beheben die Ursache zuverlässig, ersetzen Verschleissteile und sorgen
+                            für langlebige Funktion.</p>
+                        <div class="service-img-wrap">
+                            <img src="images/service3.webp" alt="Reparaturen" width="561" height="460">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Strip -->
+        <div class="cta-strip">
+            <div class="container">
+                <h2>Bereit für ein Upgrade Ihrer Türen?</h2>
+                <a href="#kontakt" class="btn-cta" style="background: var(--primary); color: #fff;">Jetzt Kontakt
+                    aufnehmen</a>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="kontakt" data-reveal>
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-info-card">
+                        <h2>Lass uns <br><span class="text-accent">sprechen.</span></h2>
+                        <p style="color: var(--text-muted); margin: 2rem 0;">Die drei Gründer von BMB stehen Ihnen
+                            persönlich zur Verfügung.</p>
+
+                        <div class="contact-item">
+                            <h4>Email</h4>
+                            <p>stefan.burkhalter@bmb.swiss</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Telefon</h4>
+                            <p>+41 (0) 79 123 45 67</p>
+                        </div>
+                    </div>
+
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="E-Mail" required>
+                        </div>
+                        <div class="form-group full">
+                            <input type="text" placeholder="Betreff">
+                        </div>
+                        <div class="form-group full">
+                            <textarea rows="6" placeholder="Ihre Nachricht" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Absenden</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo.webp" alt="BMB Logo" width="150"
+                        style="filter: invert(1); margin-bottom: 2rem;">
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Ihr Partner für hochwertige Türmontagen und
+                        Beschläge in der Schweiz.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#ueberuns">Das Team</a></li>
+                        <li><a href="#leistungen">Portfolio</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BMB – Alle Rechte vorbehalten.</p>
+                <p>Designed with Precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Smooth Scroll for Navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        mobileToggle.click();
+                    }
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 90;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 2. Sticky Header Evolution
+            const header = document.getElementById('header');
+            const scrollThreshold = 100;
+
+            const handleScroll = () => {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+
+            // 3. Advanced Reveal on Scroll Logic
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, revealOptions);
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // 4. Hero Content Staggered Entry
+            const heroElements = document.querySelectorAll('.hero-tagline, .hero h1, .hero p, .hero-actions');
+            heroElements.forEach((el, index) => {
+                el.style.animationDelay = `${0.2 + (index * 0.15)}s`;
+            });
+
+            // 5. Mobile Menu Toggle Logic
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.style.display = 'flex';
+                        setTimeout(() => navLinks.style.opacity = '1', 10);
+                    } else {
+                        navLinks.style.opacity = '0';
+                        setTimeout(() => navLinks.style.display = 'none', 300);
+                    }
+                });
+            }
+
+            // 6. Form Submission Simulation
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const btn = contactForm.querySelector('.btn-submit');
+                    const originalText = btn.innerText;
+
+                    btn.innerText = 'WIRD GESENDET...';
+                    btn.disabled = true;
+
+                    setTimeout(() => {
+                        btn.innerText = 'ERFOLGREICH GESENDET';
+                        btn.style.background = '#FFFFFF';
+                        btn.style.color = '#121212';
+                        contactForm.reset();
+
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                            btn.style.background = '';
+                            btn.style.color = '';
+                        }, 3000);
+                    }, 1500);
+                });
+            }
+
+            // 7. 3D Tilt Effect for Service Cards
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (e.clientY - rect.top - centerY) / 20;
+                    const rotateY = (centerX - (e.clientX - rect.left)) / 20;
+                    card.style.transform = `perspective(1000px) translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) translateY(0) rotateX(0) rotateY(0)`;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
