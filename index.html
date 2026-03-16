@@ -1,623 +1,816 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMB - Präzise. Zuverlässig. Regional.</title>
     <meta name="description" content="Professionelle Türmontagen, Reparaturen und Beschläge – Qualität bis ins Detail.">
     <link rel="icon" type="image/webp" href="images/favicon.webp">
-    
+
     <!-- Preconnect to external origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet"></noscript>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <style>
-:root {
-    --primary-brown: #401F11;
-    --accent-gold: #AF8B51;
-    --bg-light-grey: #F5F4F3;
-    --text-dark: #333333;
-    --text-light: #666666;
-    --white: #FFFFFF;
-    --transition: all 0.3s ease;
-
-    /* Fluid Typography */
-    --h1-size: clamp(2.5rem, 5vw + 1rem, 3.75rem);
-    /* 40px to 60px */
-    --h2-size: clamp(2rem, 4.5vw + 1rem, 3.125rem);
-    /* 32px to 50px */
-    --h3-size: clamp(1.5rem, 3vw + 1rem, 2.1875rem);
-    /* 24px to 35px */
-    --h4-size: clamp(1.25rem, 2vw + 1rem, 1.5625rem);
-    /* 20px to 25px */
-    --body-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
-    /* 16px to 20px */
-    --nav-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
-    /* 16px to 18px */
-
-    /* Fluid Spacing */
-    --section-padding: clamp(3.125rem, 1.5rem + 6.9vw, 6.25rem);
-    /* 50px to 100px */
-    --content-gap: clamp(2.5rem, 1.5rem + 4.3vw, 3.75rem);
-    /* 40px to 60px */
-    --subsection-gap: clamp(3.125rem, 1.5rem + 6.9vw, 6.25rem);
-    /* 50px to 100px */
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: clamp(1.4, 1.3 + 0.1vw, 1.5);
-    font-size: var(--body-size);
-    color: var(--text-dark);
-    background-color: var(--white);
-    -webkit-font-smoothing: antialiased;
-}
-
-h1 {
-    font-family: 'Poppins', sans-serif;
-    color: var(--primary-brown);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    font-size: var(--h1-size);
-}
-
-h2,
-h3,
-h4 {
-    font-family: 'Poppins', sans-serif;
-    color: var(--primary-brown);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    font-size: var(--h2-size);
-}
-
-h3 {
-    font-size: var(--h3-size);
-}
-
-h4 {
-    font-size: var(--h4-size);
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-.container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
-header {
-    background-color: var(--white);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
-    width: auto;
-}
-
-nav .nav-list {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-nav .nav-list li a {
-    font-weight: 500;
-    font-size: var(--nav-size);
-    color: var(--primary-brown);
-    line-height: normal;
-}
-
-nav .nav-list li a:hover {
-    color: var(--accent-gold);
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    z-index: 1001;
-}
-
-.menu-toggle .bar {
-    width: 28px;
-    height: 3px;
-    background-color: var(--primary-brown);
-    transition: var(--transition);
-}
-
-.menu-toggle.is-active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.is-active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.is-active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-.btn-contact {
-    background-color: var(--primary-brown);
-    color: var(--white) !important;
-    padding: 12px 30px;
-    border-radius: 0;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.btn-contact:hover {
-    background-color: var(--accent-gold);
-}
-
-/* Hero */
-.hero {
-    height: clamp(600px, 80vh, 1080px);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/hero.webp');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    color: var(--white);
-}
-
-.hero .container {
-    width: 100%;
-}
-
-.hero-content {
-    text-align: left;
-    max-width: 800px;
-}
-
-.hero-content h1 {
-    font-size: var(--h1-size);
-    margin-bottom: 20px;
-    color: var(--white);
-    line-height: 1;
-}
-
-.hero-content p {
-    font-size: var(--body-size);
-    margin-bottom: 40px;
-    max-width: 650px;
-    line-height: 1.4;
-}
-
-.hero-btns {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-start;
-}
-
-.btn-primary {
-    background-color: var(--white);
-    color: var(--primary-brown);
-    padding: 18px 35px;
-    border-radius: 0;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--white);
-    padding: 18px 35px;
-    border: 2px solid var(--white);
-    border-radius: 0;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.btn-primary:hover {
-    background-color: var(--accent-gold);
-    color: var(--white);
-}
-
-.btn-secondary:hover {
-    background-color: var(--white);
-    color: var(--primary-brown);
-}
-
-/* About Section */
-.about {
-    padding: var(--section-padding) 0;
-}
-
-.about .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--content-gap);
-    align-items: center;
-}
-
-.about-text h2 {
-    font-size: var(--h2-size);
-    margin-bottom: 20px;
-    line-height: 1;
-}
-
-.about-text p {
-    margin-bottom: 20px;
-    color: var(--text-light);
-    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.15rem);
-    line-height: 1.6;
-}
-
-/* Services list layout */
-.services-area {
-    padding: var(--section-padding) 0;
-}
-
-.services-area .section-intro {
-    text-align: center;
-    margin-bottom: var(--subsection-gap);
-}
-
-.services-area .section-intro p {
-    max-width: 800px;
-    margin: 40px auto 0;
-    font-size: var(--body-size);
-    line-height: clamp(1.6, 1.5 + 0.1vw, 1.7);
-}
-
-.services-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--subsection-gap);
-}
-
-.service-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--content-gap);
-    align-items: center;
-}
-
-.service-item.reverse {
-    direction: rtl;
-}
-
-.service-item.reverse .content,
-.service-item.reverse .image {
-    direction: ltr;
-}
-
-.service-item .content h3 {
-    font-size: var(--h3-size);
-    margin-bottom: 30px;
-    line-height: 1.1;
-}
-
-.service-item .highlight {
-    display: block;
-    color: var(--primary-brown);
-    font-weight: 700;
-    font-size: clamp(1.1rem, 1rem + 0.3vw, 1.25rem);
-    margin-bottom: 25px;
-}
-
-.service-item .content p {
-    color: var(--text-dark);
-    margin-bottom: 25px;
-    font-size: var(--body-size);
-    line-height: 1.6;
-}
-
-.service-item .image img {
-    border-radius: 0;
-    width: 100%;
-    height: auto;
-    box-shadow: none;
-}
-
-/* Middle Message Section */
-.hero-mini {
-    height: clamp(500px, 60vh, 750px);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/hero_mini.webp');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: flex;
-    align-items: flex-end;
-    /* Bottom alignment */
-    justify-content: flex-start;
-    /* Left alignment */
-    color: var(--white);
-    text-align: left;
-    padding: clamp(40px, 10vw, 120px);
-}
-
-.hero-mini h2 {
-    color: var(--white);
-    font-size: var(--h2-size);
-    max-width: 700px;
-    line-height: 1.1;
-    margin: 0;
-}
-
-/* Contact Form Section */
-.contact-hero {
-    padding: var(--section-padding) 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/contact.webp');
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
-    text-align: center;
-}
-
-.contact-hero h2 {
-    color: var(--white);
-    font-size: var(--h2-size);
-    margin-bottom: 20px;
-}
-
-.contact-hero p {
-    margin-bottom: 50px;
-    font-size: var(--body-size);
-}
-
-.contact-form {
-    max-width: 800px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.form-group {
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 0;
-    font-family: inherit;
-    font-size: 16px;
-}
-
-.full-width {
-    grid-column: span 2;
-}
-
-.btn-submit {
-    background-color: var(--white);
-    color: var(--primary-brown);
-    border: none;
-    padding: 18px 50px;
-    border-radius: 0;
-    /* Square button like original */
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-}
-
-.btn-submit:hover {
-    background-color: var(--accent-gold);
-    color: var(--white);
-}
-
-/* Footer */
-footer {
-    padding: var(--section-padding) 0 calc(var(--section-padding) / 2);
-    background-color: var(--white);
-    border-top: 1px solid #f0f0f0;
-}
-
-footer .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-}
-
-footer h4 {
-    font-size: var(--h4-size);
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-}
-
-footer ul {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    /* Reduced gap to match line-height feel */
-}
-
-footer ul li {
-    line-height: 1;
-}
-
-footer ul li a {
-    color: var(--text-dark);
-    font-size: 17px;
-}
-
-footer ul li a:hover {
-    color: var(--accent-gold);
-}
-
-footer .logo img {
-    height: 60px;
-    margin-bottom: 30px;
-}
-
-footer p {
-    font-size: 17px;
-    line-height: 1.6;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 60px;
-    color: var(--text-light);
-    font-size: 14px;
-}
-
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--primary-brown);
-    color: var(--white);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    opacity: 0;
-    transition: var(--transition);
-    z-index: 999;
-}
-
-.back-to-top.visible {
-    opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 991px) {
-    .container {
-        padding: 0 30px;
-    }
-
-    .about .grid,
-    .service-item,
-    .contact-form,
-    footer .grid {
-        grid-template-columns: 1fr !important;
-        gap: 50px;
-        text-align: center;
-    }
-
-    .service-item.reverse {
-        direction: ltr;
-    }
-
-    .about-image {
-        order: -1;
-    }
-
-    .hero-content h1 {
-        font-size: var(--h1-size);
-        /* Use global variable */
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    /* Target nav .nav-list specifically to override desktop flex */
-    nav .nav-list {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--white);
-        padding: 40px 20px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-        gap: 20px;
-        text-align: center;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 1000;
-    }
-
-    nav .nav-list.active {
-        display: flex;
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .hero-btns {
-        flex-direction: column;
-        padding: 0 20px;
-    }
-
-    footer .grid {
-        text-align: center;
-        gap: 50px;
-    }
-
-    footer .logo img {
-        margin: 0 auto 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    header .container {
-        padding: 0 20px;
-    }
-}
+        :root {
+            --primary-brown: #401F11;
+            --accent-gold: #AF8B51;
+            --bg-light-grey: #F5F4F3;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+            /* Fluid Typography */
+            --h1-size: clamp(2.5rem, 5vw + 1rem, 3.75rem);
+            /* 40px to 60px */
+            --h2-size: clamp(2rem, 4.5vw + 1rem, 3.125rem);
+            /* 32px to 50px */
+            --h3-size: clamp(1.5rem, 3vw + 1rem, 2.1875rem);
+            /* 24px to 35px */
+            --h4-size: clamp(1.25rem, 2vw + 1rem, 1.5625rem);
+            /* 20px to 25px */
+            --body-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+            /* 16px to 20px */
+            --nav-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+            /* 16px to 18px */
+
+            /* Fluid Spacing */
+            --section-padding: clamp(3.125rem, 1.5rem + 6.9vw, 6.25rem);
+            /* 50px to 100px */
+            --content-gap: clamp(2.5rem, 1.5rem + 4.3vw, 3.75rem);
+            /* 40px to 60px */
+            --subsection-gap: clamp(3.125rem, 1.5rem + 6.9vw, 6.25rem);
+            /* 50px to 100px */
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: clamp(1.4, 1.3 + 0.1vw, 1.5);
+            font-size: var(--body-size);
+            color: var(--text-dark);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-brown);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            font-size: var(--h1-size);
+        }
+
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-brown);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            font-size: var(--h2-size);
+        }
+
+        h3 {
+            font-size: var(--h3-size);
+        }
+
+        h4 {
+            font-size: var(--h4-size);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: height 0.3s ease;
+        }
+
+        header.scrolled .logo img {
+            height: 40px;
+        }
+
+        nav .nav-list {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav .nav-list li a {
+            font-weight: 500;
+            font-size: var(--nav-size);
+            color: var(--primary-brown);
+            line-height: normal;
+            position: relative;
+        }
+
+        nav .nav-list li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav .nav-list li a:hover::after {
+            width: 100%;
+        }
+
+        nav .nav-list li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle .bar {
+            width: 28px;
+            height: 3px;
+            background-color: var(--primary-brown);
+            transition: var(--transition);
+        }
+
+        .menu-toggle.is-active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.is-active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.is-active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .btn-contact {
+            background-color: var(--primary-brown);
+            color: var(--white) !important;
+            padding: 12px 30px;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(175, 139, 81, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/hero.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: kenBurns 20s infinite alternate cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        }
+
+        @keyframes kenBurns {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+        .hero .container {
+            width: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: var(--h1-size);
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUpStagger 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        .hero-content p {
+            font-size: var(--body-size);
+            margin-bottom: 40px;
+            max-width: 650px;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUpStagger 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards 0.2s;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUpStagger 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards 0.4s;
+        }
+
+        @keyframes fadeInUpStagger {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.2s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .mouse {
+            width: 25px;
+            height: 42px;
+            border: 2px solid var(--white);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .wheel {
+            width: 4px;
+            height: 8px;
+            background: var(--white);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 1.5s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, 15px);
+                opacity: 0;
+            }
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-brown);
+            padding: 18px 35px;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            padding: 18px 35px;
+            border: 2px solid var(--white);
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-padding) 0;
+        }
+
+        .about .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--content-gap);
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: clamp(1rem, 0.95rem + 0.2vw, 1.15rem);
+            line-height: 1.6;
+        }
+
+        /* Services list layout */
+        .services-area {
+            padding: var(--section-padding) 0;
+        }
+
+        .services-area .section-intro {
+            text-align: center;
+            margin-bottom: var(--subsection-gap);
+        }
+
+        .services-area .section-intro p {
+            max-width: 800px;
+            margin: 40px auto 0;
+            font-size: var(--body-size);
+            line-height: clamp(1.6, 1.5 + 0.1vw, 1.7);
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--subsection-gap);
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--content-gap);
+            align-items: center;
+        }
+
+        .service-item.reverse {
+            direction: rtl;
+        }
+
+        .service-item.reverse .content,
+        .service-item.reverse .image {
+            direction: ltr;
+        }
+
+        .service-item .content h3 {
+            font-size: var(--h3-size);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .service-item .highlight {
+            display: block;
+            color: var(--primary-brown);
+            font-weight: 700;
+            font-size: clamp(1.1rem, 1rem + 0.3vw, 1.25rem);
+            margin-bottom: 25px;
+        }
+
+        .service-item .content p {
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-size: var(--body-size);
+            line-height: 1.6;
+        }
+
+        .service-item .image {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-item .image img {
+            border-radius: 0;
+            width: 100%;
+            height: auto;
+            box-shadow: none;
+        }
+
+        .service-item:hover .image img {
+            transform: scale(1.05);
+        }
+
+        /* Middle Message Section */
+        .hero-mini {
+            height: clamp(500px, 60vh, 750px);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/hero_mini.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: flex-end;
+            /* Bottom alignment */
+            justify-content: flex-start;
+            /* Left alignment */
+            color: var(--white);
+            text-align: left;
+            padding: clamp(40px, 10vw, 120px);
+        }
+
+        .hero-mini h2 {
+            color: var(--white);
+            font-size: var(--h2-size);
+            max-width: 700px;
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        /* Contact Form Section */
+        .contact-hero {
+            padding: var(--section-padding) 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/contact.webp');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-hero h2 {
+            color: var(--white);
+            font-size: var(--h2-size);
+            margin-bottom: 20px;
+        }
+
+        .contact-hero p {
+            margin-bottom: 50px;
+            font-size: var(--body-size);
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 0;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(175, 139, 81, 0.2);
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .btn-submit {
+            background-color: var(--white);
+            color: var(--primary-brown);
+            border: none;
+            padding: 18px 50px;
+            border-radius: 0;
+            /* Square button like original */
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-gold);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--section-padding) 0 calc(var(--section-padding) / 2);
+            background-color: var(--white);
+            border-top: 1px solid #f0f0f0;
+        }
+
+        footer .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        footer h4 {
+            font-size: var(--h4-size);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
+
+        footer ul {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            /* Reduced gap to match line-height feel */
+        }
+
+        footer ul li {
+            line-height: 1;
+        }
+
+        footer ul li a {
+            color: var(--text-dark);
+            font-size: 17px;
+        }
+
+        footer ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        footer .logo img {
+            height: 60px;
+            margin-bottom: 30px;
+        }
+
+        footer p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 60px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-brown);
+            color: var(--white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .about .grid,
+            .service-item,
+            .contact-form,
+            footer .grid {
+                grid-template-columns: 1fr !important;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .service-item.reverse {
+                direction: ltr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .hero-content h1 {
+                font-size: var(--h1-size);
+                /* Use global variable */
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            /* Target nav .nav-list specifically to override desktop flex */
+            nav .nav-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 40px 20px;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+                gap: 20px;
+                text-align: center;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                z-index: 1000;
+            }
+
+            nav .nav-list.active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            footer .grid {
+                text-align: center;
+                gap: 50px;
+            }
+
+            footer .logo img {
+                margin: 0 auto 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                padding: 0 20px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -642,6 +835,7 @@ footer p {
 
     <main>
         <section class="hero">
+            <div class="hero-bg"></div>
             <div class="container">
                 <div class="hero-content">
                     <h1>Präzise. Zuverlässig.<br>Regional.</h1>
@@ -652,84 +846,106 @@ footer p {
                     </div>
                 </div>
             </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
         </section>
 
         <section id="ueberuns" class="about">
             <div class="container">
                 <div class="grid">
-                    <div class="about-image">
+                    <div class="about-image reveal-left">
                         <img src="images/about.webp" alt="BMB Gründer" width="637" height="430">
                     </div>
-                    <div class="about-text">
+                    <div class="about-text reveal-right">
                         <h2>Drei Gründer.<br>Ein Anspruch:<br>Sauberes Handwerk.</h2>
                         <p>BMB besteht aus den drei Gründern Burkhalter, Müller und Butah.</p>
-                        <p>Gemeinsam vereinen wir langjährige Erfahrung, handwerkliche Präzision und eine Leidenschaft für Türen. Wir glauben an ehrliches Schweizer Handwerk, klare Kommunikation und Lösungen, die halten.</p>
-                        <p>Ob Montage, Reparatur oder Beschlag – wir arbeiten sorgfältig, effizient, respektvoll und immer auf Augenhöhe mit unseren Kunden.</p>
+                        <p>Gemeinsam vereinen wir langjährige Erfahrung, handwerkliche Präzision und eine Leidenschaft
+                            für Türen. Wir glauben an ehrliches Schweizer Handwerk, klare Kommunikation und Lösungen,
+                            die halten.</p>
+                        <p>Ob Montage, Reparatur oder Beschlag – wir arbeiten sorgfältig, effizient, respektvoll und
+                            immer auf Augenhöhe mit unseren Kunden.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="hero-mini">
+        <section class="hero-mini reveal">
             <h2>Türen, die halten, was sie versprechen.</h2>
         </section>
 
         <section id="leistungen" class="services-area">
             <div class="container">
-                <div class="section-intro">
+                <div class="section-intro reveal">
                     <h2>Unsere Leistungen</h2>
-                    <p>Türen sind ein täglicher Bestandteil unseres Lebens – und genau deshalb sollten sie zuverlässig funktionieren. BMB kümmert sich mit Sorgfalt und Erfahrung um jede Art von Türmontagen, Beschlägen und Reparaturen.</p>
+                    <p>Türen sind ein täglicher Bestandteil unseres Lebens – und genau deshalb sollten sie zuverlässig
+                        funktionieren. BMB kümmert sich mit Sorgfalt und Erfahrung um jede Art von Türmontagen,
+                        Beschlägen und Reparaturen.</p>
                 </div>
 
                 <div class="services-list">
                     <!-- Service 1 -->
                     <div class="service-item">
-                        <div class="content">
+                        <div class="content reveal-left">
                             <h3>Türmontage</h3>
                             <span class="highlight">Perfekt eingepasst – von Anfang an.</span>
-                            <p>Wir montieren Innen- und Aussentüren, Schiebetüren, zweiflüglige Türen, Spezial- & Brandschutztüren fachgerecht und sauber exakt nach Vorgabe. Auf Wunsch bieten wir zusätzlich Lösungen mit Einbruchschutz und Schallschutz an.</p>
-                            <p>Jede Tür wird sauber montiert, korrekt ausgerichtet sowie zuverlässig eingestellt – für eine langlebige Funktion als auch ein perfekt stimmiges Gesamtbild.</p>
+                            <p>Wir montieren Innen- und Aussentüren, Schiebetüren, zweiflüglige Türen, Spezial- &
+                                Brandschutztüren fachgerecht und sauber exakt nach Vorgabe. Auf Wunsch bieten wir
+                                zusätzlich Lösungen mit Einbruchschutz und Schallschutz an.</p>
+                            <p>Jede Tür wird sauber montiert, korrekt ausgerichtet sowie zuverlässig eingestellt – für
+                                eine langlebige Funktion als auch ein perfekt stimmiges Gesamtbild.</p>
                         </div>
-                        <div class="image">
+                        <div class="image reveal-right">
                             <img src="images/service1.webp" alt="Türmontage" width="558" height="459">
                         </div>
                     </div>
 
                     <!-- Service 2 -->
                     <div class="service-item reverse">
-                        <div class="content">
+                        <div class="content reveal-right">
                             <h3>Türdrücker & Beschläge</h3>
                             <span class="highlight">Türdrücker, Schlösser & Beschläge – präzise installiert.</span>
-                            <p>Wir montieren und ersetzen Türdrücker, Schlösser, Beschläge, Türschliesser, Türöffner sowie Zutrittsysteme fachgerecht und passgenau. Defekte Komponenten reparieren oder tauschen wir aus und sorgen für eine saubere Funktion, kontrollierte Schliessbewegungen sowie eine dauerhaft einwandfreie Nutzung.</p>
-                            <p>Die Auswahl an schönen Türgarnituren mit Langschildern oder Rosetten ist vielfältig- gerne beraten wir Sie persönlich und zeigen Ihnen die verschiedenen Kollektionen.</p>
+                            <p>Wir montieren und ersetzen Türdrücker, Schlösser, Beschläge, Türschliesser, Türöffner
+                                sowie Zutrittsysteme fachgerecht and passgenau. Defekte Komponenten reparieren oder
+                                tauschen wir aus und sorgen für eine saubere Funktion, kontrollierte Schliessbewegungen
+                                sowie eine dauerhaft einwandfreie Nutzung.</p>
+                            <p>Die Auswahl an schönen Türgarnituren mit Langschildern oder Rosetten ist vielfältig-
+                                gerne beraten wir Sie persönlich und zeigen Ihnen die verschiedenen Kollektionen.</p>
                         </div>
-                        <div class="image">
+                        <div class="image reveal-left">
                             <img src="images/service2.webp" alt="Türdrücker & Beschläge" width="558" height="458">
                         </div>
                     </div>
 
                     <!-- Service 3 -->
                     <div class="service-item">
-                        <div class="content">
+                        <div class="content reveal-left">
                             <h3>Reparaturen & Nachrüstungen</h3>
                             <span class="highlight">Wenn etwas klemmt – wir kümmern uns darum.</span>
-                            <p>Wenn Türen nicht mehr einwandfrei funktionieren, beheben wir die Ursache zuverlässig und fachgerecht. Wir reparieren Defekte, ersetzen Verschleissteile und montieren hochwertige Türdrücker, Schlösser und Beschläge – sauber, präzise und langlebig.</p>
+                            <p>Wenn Türen nicht mehr einwandfrei funktionieren, beheben wir die Ursache zuverlässig und
+                                fachgerecht. Wir reparieren Defekte, ersetzen Verschleissteile und montieren hochwertige
+                                Türdrücker, Schlösser und Beschläge – sauber, präzise und langlebig.</p>
                         </div>
-                        <div class="image">
+                        <div class="image reveal-right">
                             <img src="images/service3.webp" alt="Reparaturen & Nachrüstungen" width="561" height="460">
                         </div>
                     </div>
 
                     <!-- Service 4 -->
                     <div class="service-item reverse">
-                        <div class="content">
+                        <div class="content reveal-right">
                             <h3>Beratung & Planung</h3>
                             <span class="highlight">Damit jede Tür zur Lösung wird.</span>
                             <p>Sie planen einen Neubau, Umbau oder möchten Türen ersetzen?</p>
-                            <p>Wir beraten Sie kompetent bei der Auswahl von Materialien, Modellen, Funktionen sowie Möglichkeiten. So wird aus einer Idee ein perfekt Ergebnis, das überzeugt – optisch sowohl als auch funktional.</p>
-                            <p>Zudem bieten wir eine vielseitige Auswahl an Oberflächen, Farben und Ausführungen, abgestimmt auf Ihren Stil und Ihren Wunsch an.</p>
+                            <p>Wir beraten Sie kompetent bei der Auswahl von Materialien, Modellen, Funktionen sowie
+                                Möglichkeiten. So wird aus einer Idee ein perfekt Ergebnis, das überzeugt – optisch
+                                sowohl als auch funktional.</p>
+                            <p>Zudem bieten wir eine vielseitige Auswahl an Oberflächen, Farben und Ausführungen,
+                                abgestimmt auf Ihren Stil und Ihren Wunsch an.</p>
                         </div>
-                        <div class="image">
+                        <div class="image reveal-left">
                             <img src="images/service2.webp" alt="Beratung & Planung" width="558" height="458">
                         </div>
                     </div>
@@ -737,10 +953,11 @@ footer p {
             </div>
         </section>
 
-        <section id="kontakt" class="contact-hero">
+        <section id="kontakt" class="contact-hero reveal">
             <div class="container">
                 <h2>Kontaktieren Sie uns.</h2>
-                <p>Ob Neubau, Renovation oder schnelle Reparatur – schreiben Sie uns oder rufen Sie direkt an. Die drei Gründer von BMB stehen Ihnen persönlich zur Verfügung.</p>
+                <p>Ob Neubau, Renovation oder schnelle Reparatur – schreiben Sie uns oder rufen Sie direkt an. Die drei
+                    Gründer von BMB stehen Ihnen persönlich zur Verfügung.</p>
                 <form class="contact-form">
                     <div class="form-group">
                         <label>Vor- / Nachname</label>
@@ -801,9 +1018,13 @@ footer p {
     </footer>
 
     <div class="back-to-top" id="backToTop">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

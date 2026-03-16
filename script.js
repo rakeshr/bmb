@@ -59,15 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Back to top button visibility
     const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        // Sticky Header
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Back to top
+        if (backToTop) {
             if (window.scrollY > 500) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
             }
-        });
+        }
+    });
 
+    if (backToTop) {
         backToTop.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -75,4 +87,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Reveal on Scroll
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: stop observing once revealed
+                // revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
 });

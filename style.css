@@ -314,7 +314,7 @@ nav .nav-list li a:hover {
 
 .service-item .content h3 {
     font-size: var(--h3-size);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     line-height: 1.1;
 }
 
