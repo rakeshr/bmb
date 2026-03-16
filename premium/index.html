@@ -23,8 +23,8 @@
             --accent: #D4AF37;
             /* Precision Gold */
             --accent-soft: rgba(212, 175, 55, 0.1);
-            --text-main: #FFFFFF;
-            --text-muted: #A0A0A0;
+            --text-main: #D4AF37;
+            --text-muted: #fff;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
 
@@ -621,6 +621,48 @@
             font-size: 0.8rem;
         }
 
+        /* Language Toggle Styles */
+        .lang-toggle-wrap {
+            margin-left: 1rem;
+        }
+
+        .lang-toggle {
+            display: flex;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 4px;
+            gap: 4px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 900px) {
+            .lang-toggle-wrap {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
         /* Mobile Toggle Animation Styles */
         .mobile-toggle {
             display: none;
@@ -644,9 +686,17 @@
             transition: .25s ease-in-out;
         }
 
-        .mobile-toggle span:nth-child(1) { top: 0px; }
-        .mobile-toggle span:nth-child(2) { top: 9px; }
-        .mobile-toggle span:nth-child(3) { top: 18px; }
+        .mobile-toggle span:nth-child(1) {
+            top: 0px;
+        }
+
+        .mobile-toggle span:nth-child(2) {
+            top: 9px;
+        }
+
+        .mobile-toggle span:nth-child(3) {
+            top: 18px;
+        }
 
         .mobile-toggle.active span:nth-child(1) {
             top: 9px;
@@ -732,9 +782,15 @@
             </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#ueberuns">Das Team</a></li>
-                    <li><a href="#leistungen">Portfolio</a></li>
-                    <li><a href="#kontakt" class="btn-cta">Kontakt</a></li>
+                    <li><a href="#ueberuns" data-i18n="nav_team">Das Team</a></li>
+                    <li><a href="#leistungen" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li><a href="#kontakt" class="btn-cta" data-i18n="nav_contact">Kontakt</a></li>
+                    <li class="lang-toggle-wrap">
+                        <div class="lang-toggle">
+                            <button class="lang-btn active" data-lang="de">DE</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
                 </ul>
                 <div class="mobile-toggle">
                     <span></span>
@@ -751,21 +807,23 @@
             <div class="hero-img-bg"></div>
             <div class="container">
                 <div class="hero-content">
-                    <span class="hero-tagline">Schweizer Handwerkskunst</span>
-                    <h1>Präzision.<br>Zuverlässigkeit.<br><span class="text-accent">BMB.</span></h1>
-                    <p style="color: #fff;">Wir vereinen langjährige Erfahrung mit modernster Montage-Technik. Für
+                    <span class="hero-tagline" data-i18n="hero_tagline">Schweizer Handwerkskunst</span>
+                    <h1 data-i18n="hero_h1">Präzision.<br>Zuverlässigkeit.<br><span class="text-accent">BMB.</span></h1>
+                    <p style="color: #fff;" data-i18n="hero_p">Wir vereinen langjährige Erfahrung mit modernster
+                        Montage-Technik. Für
                         Türen, die nicht nur
                         schliessen, sondern überzeugen.</p>
                     <div class="hero-actions">
-                        <a href="#kontakt" class="btn-cta">Jetzt Offerte</a>
+                        <a href="#kontakt" class="btn-cta" data-i18n="hero_cta">Jetzt Offerte</a>
                         <a href="#leistungen"
-                            style="border-bottom: 2px solid var(--accent); font-weight: 600; padding: 0.5rem 0;">Unsere
+                            style="border-bottom: 2px solid var(--accent); font-weight: 600; padding: 0.5rem 0;"
+                            data-i18n="hero_services">Unsere
                             Leistungen</a>
                     </div>
                 </div>
             </div>
             <div class="scroll-badge">
-                <span>Entdecken</span>
+                <span data-i18n="hero_discover">Entdecken</span>
                 <div class="scroll-line"></div>
             </div>
         </section>
@@ -777,71 +835,83 @@
                     <div class="about-img-stack">
                         <img src="images/about.webp" alt="BMB Gründer" class="about-img-main" width="637" height="430">
                         <div class="about-floating-card">
-                            <h3 style="font-size: 2.5rem; color: var(--accent);">20+</h3>
-                            <p
-                                style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1rem; color: #fff;">
+                            <h3 style="font-size: 2.5rem; color: var(--accent);" data-i18n="about_xp">20+</h3>
+                            <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1rem; color: #fff;"
+                                data-i18n="about_xp_text">
                                 Jahre gebündelte Erfahrung</p>
                         </div>
                     </div>
                     <div class="about-text">
                         <span class="text-accent"
-                            style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem;">Über
+                            style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem;"
+                            data-i18n="about_tag">Über
                             Uns</span>
-                        <h2 style="margin-top: 1rem;">Drei Gründer. Ein Anspruch:<br><span class="text-accent">Sauberes
+                        <h2 style="margin-top: 1rem;" data-i18n="about_h2">Drei Gründer. Ein Anspruch:<br><span
+                                class="text-accent">Sauberes
                                 Handwerk.</span></h2>
-                        <p>BMB besteht aus den drei Gründern Burkhalter, Müller und Butah. Gemeinsam vereinen wir
+                        <p data-i18n="about_p1">BMB besteht aus den drei Gründern Burkhalter, Müller und Butah.
+                            Gemeinsam vereinen wir
                             langjährige Erfahrung, handwerkliche Präzision und eine Leidenschaft für Türen.</p>
-                        <p>Wir glauben an ehrliches Schweizer Handwerk, klare Kommunikation und Lösungen, die halten. Ob
+                        <p data-i18n="about_p2">Wir glauben an ehrliches Schweizer Handwerk, klare Kommunikation und
+                            Lösungen, die halten. Ob
                             Montage, Reparatur oder Beschlag – wir arbeiten sorgfältig, effizient und immer auf
                             Augenhöhe.</p>
                         <div style="display: flex; gap: 2rem; margin-top: 2rem;">
-                            <div><strong style="display: block; font-size: 1.2rem;">Sorgfältig</strong><span
-                                    style="font-size: 0.8rem; color: var(--text-muted);">Bis ins Detail</span></div>
-                            <div><strong style="display: block; font-size: 1.2rem;">Effizient</strong><span
-                                    style="font-size: 0.8rem; color: var(--text-muted);">Zeitsparend</span></div>
-                            <div><strong style="display: block; font-size: 1.2rem;">Respektvoll</strong><span
-                                    style="font-size: 0.8rem; color: var(--text-muted);">Kundenfokus</span></div>
+                            <div><strong style="display: block; font-size: 1.2rem;"
+                                    data-i18n="about_feature1_h">Sorgfältig</strong><span
+                                    style="font-size: 0.8rem; color: var(--text-muted);"
+                                    data-i18n="about_feature1_s">Bis ins Detail</span></div>
+                            <div><strong style="display: block; font-size: 1.2rem;"
+                                    data-i18n="about_feature2_h">Effizient</strong><span
+                                    style="font-size: 0.8rem; color: var(--text-muted);"
+                                    data-i18n="about_feature2_s">Zeitsparend</span></div>
+                            <div><strong style="display: block; font-size: 1.2rem;"
+                                    data-i18n="about_feature3_h">Respektvoll</strong><span
+                                    style="font-size: 0.8rem; color: var(--text-muted);"
+                                    data-i18n="about_feature3_s">Kundenfokus</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
         <section id="leistungen" data-reveal>
             <div class="container">
                 <div class="section-header">
-                    <span class="tag">Portfolio</span>
-                    <h2>Türen, die halten, was sie versprechen.</h2>
-                    <p style="color: var(--text-muted); margin-top: 1.5rem;">Vom Neubau bis zur Reparatur – wir bieten
+                    <span class="tag" data-i18n="services_tag">Portfolio</span>
+                    <h2 data-i18n="services_h2">Türen, die halten, was sie versprechen.</h2>
+                    <p style="color: var(--text-muted); margin-top: 1.5rem;" data-i18n="services_p">Vom Neubau bis zur
+                        Reparatur – wir bieten
                         massgeschneiderte Lösungen für jede Anforderung.</p>
                 </div>
 
                 <div class="services-grid">
                     <div class="service-card" data-reveal>
                         <div class="service-icon">01</div>
-                        <h3>Türmontage</h3>
-                        <p>Wir montieren Innen- und Aussentüren, Schiebetüren, Brandschutztüren sowie Speziallösungen
+                        <h3 data-i18n="service1_h">Türmontage</h3>
+                        <p data-i18n="service1_p">Wir montieren Innen- und Aussentüren, Schiebetüren, Brandschutztüren
+                            sowie
+                            Speziallösungen
                             fachgerecht exakt nach Vorgabe.</p>
                         <div class="service-img-wrap">
                             <img src="images/service1.webp" alt="Türmontage" width="558" height="459">
                         </div>
                     </div>
-
                     <div class="service-card" data-reveal>
                         <div class="service-icon">02</div>
-                        <h3>Beschläge</h3>
-                        <p>Präzise Installation von Türdrückern, Schlössern, Türschliessern und modernen
+                        <h3 data-i18n="service2_h">Beschläge</h3>
+                        <p data-i18n="service2_p">Präzise Installation von Türdrückern, Schlössern, Türschliessern und
+                            modernen
                             Zutrittssystemen für Ihre Sicherheit.</p>
                         <div class="service-img-wrap">
                             <img src="images/service2.webp" alt="Beschläge" width="558" height="458">
                         </div>
                     </div>
-
                     <div class="service-card" data-reveal>
                         <div class="service-icon">03</div>
-                        <h3>Reparaturen</h3>
-                        <p>Wenn etwas klemmt: Wir beheben die Ursache zuverlässig, ersetzen Verschleissteile und sorgen
+                        <h3 data-i18n="service3_h">Reparaturen</h3>
+                        <p data-i18n="service3_p">Wenn etwas klemmt: Wir beheben die Ursache zuverlässig, ersetzen
+                            Verschleissteile und sorgen
                             für langlebige Funktion.</p>
                         <div class="service-img-wrap">
                             <img src="images/service3.webp" alt="Reparaturen" width="561" height="460">
@@ -854,8 +924,9 @@
         <!-- CTA Strip -->
         <div class="cta-strip">
             <div class="container">
-                <h2>Bereit für ein Upgrade Ihrer Türen?</h2>
-                <a href="#kontakt" class="btn-cta" style="background: var(--primary); color: #fff;">Jetzt Kontakt
+                <h2 data-i18n="cta_h2">Bereit für ein Upgrade Ihrer Türen?</h2>
+                <a href="#kontakt" class="btn-cta" style="background: var(--primary); color: #fff;"
+                    data-i18n="cta_btn">Jetzt Kontakt
                     aufnehmen</a>
             </div>
         </div>
@@ -865,34 +936,36 @@
             <div class="container">
                 <div class="contact-layout">
                     <div class="contact-info-card">
-                        <h2>Lass uns <br><span class="text-accent">sprechen.</span></h2>
-                        <p style="color: var(--text-muted); margin: 2rem 0;">Die drei Gründer von BMB stehen Ihnen
+                        <h2 data-i18n="contact_h2">Lass uns <br><span class="text-accent">sprechen.</span></h2>
+                        <p style="color: var(--text-muted); margin: 2rem 0;" data-i18n="contact_p">Die drei Gründer von
+                            BMB stehen Ihnen
                             persönlich zur Verfügung.</p>
 
                         <div class="contact-item">
-                            <h4>Email</h4>
+                            <h4 data-i18n="contact_email_label">Email</h4>
                             <p>stefan.burkhalter@bmb.swiss</p>
                         </div>
                         <div class="contact-item">
-                            <h4>Telefon</h4>
+                            <h4 data-i18n="contact_phone_label">Telefon</h4>
                             <p>+41 (0) 79 123 45 67</p>
                         </div>
                     </div>
 
-                    <form class="contact-form">
+                    <form class="contact-form" action="https://formspree.io/f/xoqogvww" method="POST">
                         <div class="form-group">
-                            <input type="text" placeholder="Name" required>
+                            <input type="text" name="name" placeholder="Name" data-i18n-ph="form_name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="E-Mail" required>
+                            <input type="email" name="email" placeholder="E-Mail" data-i18n-ph="form_email" required>
                         </div>
                         <div class="form-group full">
-                            <input type="text" placeholder="Betreff">
+                            <input type="text" name="subject" placeholder="Betreff" data-i18n-ph="form_subject">
                         </div>
                         <div class="form-group full">
-                            <textarea rows="6" placeholder="Ihre Nachricht" required></textarea>
+                            <textarea name="message" rows="6" placeholder="Ihre Nachricht" data-i18n-ph="form_message"
+                                required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit">Absenden</button>
+                        <button type="submit" class="btn-submit" data-i18n="form_submit">Absenden</button>
                     </form>
                 </div>
             </div>
@@ -905,28 +978,29 @@
                 <div class="footer-col">
                     <img src="images/logo.webp" alt="BMB Logo" width="150"
                         style="filter: invert(1); margin-bottom: 2rem;">
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Ihr Partner für hochwertige Türmontagen und
+                    <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="footer_desc">Ihr Partner für
+                        hochwertige Türmontagen und
                         Beschläge in der Schweiz.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Navigation</h4>
+                    <h4 data-i18n="footer_nav">Navigation</h4>
                     <ul>
-                        <li><a href="#ueberuns">Das Team</a></li>
-                        <li><a href="#leistungen">Portfolio</a></li>
-                        <li><a href="#kontakt">Kontakt</a></li>
+                        <li><a href="#ueberuns" data-i18n="nav_team">Das Team</a></li>
+                        <li><a href="#leistungen" data-i18n="nav_portfolio">Portfolio</a></li>
+                        <li><a href="#kontakt" data-i18n="nav_contact">Kontakt</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Rechtliches</h4>
+                    <h4 data-i18n="footer_legal">Rechtliches</h4>
                     <ul>
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#" data-i18n="footer_imprint">Impressum</a></li>
+                        <li><a href="#" data-i18n="footer_privacy">Datenschutz</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 BMB – Alle Rechte vorbehalten.</p>
-                <p>Designed with Precision.</p>
+                <p data-i18n="footer_copyright">&copy; 2024 BMB – Alle Rechte vorbehalten.</p>
+                <p data-i18n="footer_design">Designed with Precision.</p>
             </div>
         </div>
     </footer>
@@ -1011,48 +1085,184 @@
                 });
             }
 
-            // 6. Form Submission Simulation
+            // 6. Live Form Submission with Formspree
             const contactForm = document.querySelector('.contact-form');
             if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
+                contactForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     const btn = contactForm.querySelector('.btn-submit');
                     const originalText = btn.innerText;
 
+                    const formData = new FormData(contactForm);
+
                     btn.innerText = 'WIRD GESENDET...';
                     btn.disabled = true;
 
-                    setTimeout(() => {
-                        btn.innerText = 'ERFOLGREICH GESENDET';
-                        btn.style.background = '#FFFFFF';
-                        btn.style.color = '#121212';
-                        contactForm.reset();
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
 
+                        if (response.ok) {
+                            btn.innerText = 'ERFOLGREICH GESENDET';
+                            btn.style.background = '#FFFFFF';
+                            btn.style.color = '#121212';
+                            contactForm.reset();
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    } catch (error) {
+                        btn.innerText = 'FEHLER BEIM SENDEN';
+                        btn.style.background = '#ff4444';
+                    } finally {
                         setTimeout(() => {
                             btn.innerText = originalText;
                             btn.disabled = false;
                             btn.style.background = '';
                             btn.style.color = '';
                         }, 3000);
-                    }, 1500);
+                    }
                 });
             }
 
-            // 7. 3D Tilt Effect for Service Cards
-            const cards = document.querySelectorAll('.service-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = (e.clientY - rect.top - centerY) / 20;
-                    const rotateY = (centerX - (e.clientX - rect.left)) / 20;
-                    card.style.transform = `perspective(1000px) translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            // 8. Multi-language Support (DE/EN)
+            const translations = {
+                de: {
+                    nav_team: "Das Team",
+                    nav_portfolio: "Portfolio",
+                    nav_contact: "Kontakt",
+                    hero_tagline: "Schweizer Handwerkskunst",
+                    hero_h1: "Präzision.<br>Zuverlässigkeit.<br><span class=\"text-accent\">BMB.</span>",
+                    hero_p: "Wir vereinen langjährige Erfahrung mit modernster Montage-Technik. Für Türen, die nicht nur schliessen, sondern überzeugen.",
+                    hero_cta: "Jetzt Offerte",
+                    hero_services: "Unsere Leistungen",
+                    hero_discover: "Entdecken",
+                    about_tag: "Über Uns",
+                    about_h2: "Drei Gründer. Ein Anspruch:<br><span class=\"text-accent\">Sauberes Handwerk.</span>",
+                    about_p1: "BMB besteht aus den drei Gründern Burkhalter, Müller und Butah. Gemeinsam vereinen wir langjährige Erfahrung, handwerkliche Präzision und eine Leidenschaft für Türen.",
+                    about_p2: "Wir glauben an ehrliches Schweizer Handwerk, klare Kommunikation und Lösungen, die halten. Ob Montage, Reparatur oder Beschlag – wir arbeiten sorgfältig, effizient und immer auf Augenhöhe.",
+                    about_xp: "20+",
+                    about_xp_text: "Jahre gebündelte Erfahrung",
+                    about_feature1_h: "Sorgfältig",
+                    about_feature1_s: "Bis ins Detail",
+                    about_feature2_h: "Effizient",
+                    about_feature2_s: "Zeitsparend",
+                    about_feature3_h: "Respektvoll",
+                    about_feature3_s: "Kundenfokus",
+                    services_tag: "Portfolio",
+                    services_h2: "Türen, die halten, was sie versprechen.",
+                    services_p: "Vom Neubau bis zur Reparatur – wir bieten massgeschneiderte Lösungen für jede Anforderung.",
+                    service1_h: "Türmontage",
+                    service1_p: "Wir montieren Innen- und Aussentüren, Schiebetüren, Brandschutztüren sowie Speziallösungen fachgerecht exakt nach Vorgabe.",
+                    service2_h: "Beschläge",
+                    service2_p: "Präzise Installation von Türdrückern, Schlössern, Türschliessern und modernen Zutrittssystemen für Ihre Sicherheit.",
+                    service3_h: "Reparaturen",
+                    service3_p: "Wenn etwas klemmt: Wir beheben die Ursache zuverlässig, ersetzen Verschleissteile und sorgen für langlebige Funktion.",
+                    cta_h2: "Bereit für ein Upgrade Ihrer Türen?",
+                    cta_btn: "Jetzt Kontakt aufnehmen",
+                    contact_h2: "Lass uns <br><span class=\"text-accent\">sprechen.</span>",
+                    contact_p: "Die drei Gründer von BMB stehen Ihnen persönlich zur Verfügung.",
+                    contact_email_label: "Email",
+                    contact_phone_label: "Telefon",
+                    form_name: "Name",
+                    form_email: "E-Mail",
+                    form_subject: "Betreff",
+                    form_message: "Ihre Nachricht",
+                    form_submit: "Absenden",
+                    footer_desc: "Ihr Partner für hochwertige Türmontagen und Beschläge in der Schweiz.",
+                    footer_nav: "Navigation",
+                    footer_legal: "Rechtliches",
+                    footer_imprint: "Impressum",
+                    footer_privacy: "Datenschutz",
+                    footer_copyright: "&copy; 2024 BMB – Alle Rechte vorbehalten.",
+                    footer_design: "Designed with Precision."
+                },
+                en: {
+                    nav_team: "The Team",
+                    nav_portfolio: "Portfolio",
+                    nav_contact: "Contact",
+                    hero_tagline: "Swiss Craftsmanship",
+                    hero_h1: "Precision.<br>Reliability.<br><span class=\"text-accent\">BMB.</span>",
+                    hero_p: "We combine years of experience with state-of-the-art assembly technology. For doors that don't just close, but convince.",
+                    hero_cta: "Get Quote",
+                    hero_services: "Our Services",
+                    hero_discover: "Discover",
+                    about_tag: "About Us",
+                    about_h2: "Three Founders. One Standard:<br><span class=\"text-accent\">Clean Craftsmanship.</span>",
+                    about_p1: "BMB consists of the three founders Burkhalter, Müller and Butah. Together we combine years of experience, manual precision and a passion for doors.",
+                    about_p2: "We believe in honest Swiss craftsmanship, clear communication and solutions that last. Whether assembly, repair or fitting – we work carefully, efficiently and always at eye level.",
+                    about_xp: "20+",
+                    about_xp_text: "Years of combined experience",
+                    about_feature1_h: "Careful",
+                    about_feature1_s: "Down to the detail",
+                    about_feature2_h: "Efficient",
+                    about_feature2_s: "Time-saving",
+                    about_feature3_h: "Respectful",
+                    about_feature3_s: "Customer focus",
+                    services_tag: "Portfolio",
+                    services_h2: "Doors that keep their promise.",
+                    services_p: "From new builds to repairs – we offer customized solutions for every requirement.",
+                    service1_h: "Door Installation",
+                    service1_p: "We professionally install interior and exterior doors, sliding doors, fire doors as well as special solutions exactly according to specifications.",
+                    service2_h: "Fittings",
+                    service2_p: "Precise installation of door handles, locks, door closers and modern access systems for your security.",
+                    service3_h: "Repairs",
+                    service3_p: "If something jams: We reliably fix the cause, replace wearing parts and ensure long-lasting function.",
+                    cta_h2: "Ready for an upgrade of your doors?",
+                    cta_btn: "Contact us now",
+                    contact_h2: "Let's <br><span class=\"text-accent\">talk.</span>",
+                    contact_p: "The three founders of BMB are personally at your disposal.",
+                    contact_email_label: "Email",
+                    contact_phone_label: "Phone",
+                    form_name: "Name",
+                    form_email: "Email",
+                    form_subject: "Subject",
+                    form_message: "Your message",
+                    form_submit: "Send",
+                    footer_desc: "Your partner for high-quality door installations and fittings in Switzerland.",
+                    footer_nav: "Navigation",
+                    footer_legal: "Legal",
+                    footer_imprint: "Imprint",
+                    footer_privacy: "Privacy",
+                    footer_copyright: "&copy; 2024 BMB – All rights reserved.",
+                    footer_design: "Designed with Precision."
+                }
+            };
+
+            const setLanguage = (lang) => {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
                 });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = `perspective(1000px) translateY(0) rotateX(0) rotateY(0)`;
+
+                document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-ph');
+                    if (translations[lang][key]) {
+                        el.placeholder = translations[lang][key];
+                    }
                 });
+
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                });
+
+                document.documentElement.lang = lang;
+                localStorage.setItem('preferred-lang', lang);
+            };
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
             });
+
+            // Init language
+            const savedLang = localStorage.getItem('preferred-lang') || 'de';
+            setLanguage(savedLang);
         });
     </script>
 </body>
